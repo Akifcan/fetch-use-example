@@ -10,7 +10,9 @@
     "test": "jest"
   },
   "dependencies": {
-    "fetch-use": "file:../fetch-use/fetch-use-1.0.1.tgz",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "fetch-use": "/Users/ali/Desktop/fetch-use-react-native/fetch-use-1.0.2.tgz",
     "react": "18.2.0",
     "react-native": "0.71.8"
   },

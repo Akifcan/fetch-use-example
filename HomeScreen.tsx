@@ -36,16 +36,22 @@ export const HomeScreen: FC = () => {
     isLoading: postLoading,
     error: postError,
     destroy: postDestroy,
-  } = useFetch<PostProps[]>('/posts', 'GET', {
+  } = useFetch<PostProps[]>('/', 'POST', {
     useErrorView: false,
     useCache: true,
     ttlCache: 60000,
   });
 
-  const [vals, setVals] = useState<any>([]);
+  const [vals] = useState<any>([]);
 
   useEffect(() => {
-    getTodoRequest();
+    // getTodoRequest();
+
+    getPostRequest({
+      body: {name: 'akif', last: 'kara'},
+      contentType: 'application/json', //application/json | multipart/form-data
+      params: {id: 20}, //if needed not required
+    });
 
     return () => {
       todoDestroy();
@@ -69,11 +75,18 @@ export const HomeScreen: FC = () => {
   }, [todoData]);
 
   useEffect(() => {
-    console.log('sdf');
+    if (!postError) {
+      return;
+    }
+    console.log(postError);
+  }, [postError]);
+
+  useEffect(() => {
     if (!postData) {
       return;
     }
-    setVals((prev: any) => [...prev, postData.map((x: any) => x.id)]);
+    console.log(postData);
+    // setVals((prev: any) => [...prev, postData.map((x: any) => x.id)]);
   }, [postData]);
 
   return (
