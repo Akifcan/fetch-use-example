@@ -42,7 +42,7 @@ export const HomeScreen: FC = () => {
     ttlCache: 60000,
   });
 
-  const [vals] = useState<any>([]);
+  const [vals, setVals] = useState<any>([]);
 
   useEffect(() => {
     // getTodoRequest();
@@ -86,7 +86,7 @@ export const HomeScreen: FC = () => {
       return;
     }
     console.log(postData);
-    // setVals((prev: any) => [...prev, postData.map((x: any) => x.id)]);
+    setVals((prev: any) => [...prev, prev.length + 1]);
   }, [postData]);
 
   return (
