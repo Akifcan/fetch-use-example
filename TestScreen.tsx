@@ -1,4 +1,4 @@
-import {useFetch} from 'fetch-use/src/hooks/useFetch';
+import {useFetch, UseFetchConst} from 'fetch-use';
 import React, {useEffect} from 'react';
 import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 export const TestScreen = () => {
@@ -7,17 +7,22 @@ export const TestScreen = () => {
     data: todoData,
     error: todoError,
     destroy: todoDestroy,
-  } = useFetch<any[]>('/todos/1', 'GET', {
+  } = useFetch<any[]>('/', 'POST', {
     headers: {
       authorization: 'Bearer jwt',
     },
-    useErrorView: false,
+    useErrorView: true,
     useCache: true,
     ttlCache: 60000,
     useLogs: false,
   });
   useEffect(() => {
-    getTodoRequest();
+    UseFetchConst.headers = {
+      akifffff: 'a',
+      b: 'b',
+    };
+
+    // getTodoRequest();
     return () => {
       todoDestroy();
     };
@@ -50,6 +55,7 @@ export const TestScreen = () => {
     // eslint-disable-next-line react-native/no-inline-styles
     <View style={{padding: 50}}>
       <Text>{JSON.stringify(todoData)}</Text>
+      <Text>{JSON.stringify(UseFetchConst.headers)}</Text>
       <Text>{JSON.stringify(todoError)}</Text>
       <TouchableOpacity onPress={() => getTodoRequest()}>
         <Text style={styles.button}>Send request</Text>
