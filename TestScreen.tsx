@@ -1,4 +1,4 @@
-import {useFetch, UseFetchConst} from 'fetch-use';
+import {useFetch, UseFetchConst} from 'fetch-use/src/index';
 import React, {useEffect} from 'react';
 import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 export const TestScreen = () => {
@@ -11,7 +11,7 @@ export const TestScreen = () => {
     headers: {
       authorization: 'Bearer jwt',
     },
-    useErrorView: true,
+    useErrorView: false,
     useCache: true,
     ttlCache: 60000,
     useLogs: false,
@@ -40,6 +40,7 @@ export const TestScreen = () => {
     if (!todoError) {
       return;
     }
+    console.log('local error!');
     console.log(todoError);
   }, [todoError]);
 

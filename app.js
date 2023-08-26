@@ -7,12 +7,11 @@ app.use(cors());
 
 app.get('/', (req, res) => {
   console.log(req.headers);
-  res.send('ok');
+  res.status(402).send('ok');
 });
 
 app.post('/', (req, res) => {
-  // res.json({url: req.url, ...req.body, ...req.headers, ...req.query});
-  res.json({name: 'akif'});
+  res.status(402).json({name: 'akif'});
 });
 
 app.listen(3000);

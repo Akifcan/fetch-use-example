@@ -1,5 +1,5 @@
 import React from 'react';
-import {FetchProvider, useFetchWrapper} from 'fetch-use';
+import {FetchProvider, useFetchWrapper} from 'fetch-use/src/index';
 import {Text, SafeAreaView, Button} from 'react-native';
 import {TestScreen} from './TestScreen';
 
@@ -25,8 +25,9 @@ const App = () => {
 
   return (
     <FetchProvider
-      globalError={() => {
-        console.log('err');
+      globalError={e => {
+        console.log('global error');
+        console.log(e);
       }}
       baseUrl={BASE_URL}
       errorView={<ErrorView />}>
