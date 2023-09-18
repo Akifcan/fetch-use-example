@@ -3400,10 +3400,18 @@ fb-watchman@^2.0.0:
   dependencies:
     bser "2.1.1"
 
-"fetch-use@file:fetch-use-v6.0.0.tgz":
+fetch-use@^6.0.0:
   version "6.0.0"
-  resolved "file:fetch-use-v6.0.0.tgz#15570227a56cd7910777fbf6a988df69f8d0137b"
+  resolved "https://registry.yarnpkg.com/fetch-use/-/fetch-use-6.0.0.tgz#8d1a86a6967f6d70aa5880a6334228b7e98b18e0"
+  integrity sha512-jAnRWPxpxnMOwJ0Pjox9XpuaQ3vz07OJiTMBkSdSKBWVwgr69K/To4cgzSmyGbeY+mfSOcs5gNlGipz6nZ4sGw==
   dependencies:
+    react-native-restart "^0.0.27"
+
+"fetch-use@file:fetch-use-7.0.3.tgz":
+  version "7.0.3"
+  resolved "file:fetch-use-7.0.3.tgz#b138a3b124cbd6d67caebe5b94b018e562eb0e3b"
+  dependencies:
+    fetch-use "^6.0.0"
     react-native-restart "^0.0.27"
 
 file-entry-cache@^6.0.1:

@@ -1,5 +1,5 @@
 import React from 'react';
-import {FetchProvider, useFetchWrapper} from 'fetch-use/src/index';
+import {FetchProvider, useFetchWrapper} from 'fetch-use';
 import {Text, SafeAreaView, Button} from 'react-native';
 import {TestScreen} from './TestScreen';
 
@@ -20,14 +20,14 @@ const ErrorView = () => {
 };
 
 const App = () => {
-  const BASE_URL = 'http://localhost:3000';
-  // const BASE_URL = 'https://jsonplaceholder.typicode.com';
+  // const BASE_URL = 'http://localhost:3000';
+  const BASE_URL = 'https://jsonplaceholder.typicode.com';
 
   return (
     <FetchProvider
       globalError={e => {
         console.log('global error');
-        console.log(e);
+        console.log(e.message);
       }}
       baseUrl={BASE_URL}
       errorView={<ErrorView />}>
